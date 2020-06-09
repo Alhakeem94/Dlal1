@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dalal", "Dalal.csproj", "{E1A2B8CB-7460-4B90-96C9-AEDF5EFACEAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1A2B8CB-7460-4B90-96C9-AEDF5EFACEAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A2B8CB-7460-4B90-96C9-AEDF5EFACEAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A2B8CB-7460-4B90-96C9-AEDF5EFACEAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A2B8CB-7460-4B90-96C9-AEDF5EFACEAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {34AFB072-8D66-4F1C-A81E-D070263D9FF8}
+	EndGlobalSection
+EndGlobal

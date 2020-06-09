@@ -1,0 +1,58 @@
+﻿@model Dalal.ViewModels.CreateProductViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-sm-center">اضافة منتج جديد</h1>
+<br />
+<br />
+
+
+  
+
+<form dir="rtl" enctype="multipart/form-data" method="post" asp-controller="Products" asp-action="Create">
+    <div class="form-group col-xs-4 col-md-4">
+        <label style="margin-left:90%" for="name" class="control-label">الاسم</label>
+        <input asp-for="@Model.ProductName" type="text" value='' class="form-control" id="name" placeholder="اسم المنتج">
+    </div>
+    <div class=" form-group col-xs-4 col-md-4">
+        <label style="margin-left:90%" for="name" class="control-label">السعر</label>
+        <input asp-for="@Model.ProductPrice" type="text" value='' class="form-control" id="name" placeholder="سعر المنتج">
+    </div>
+    <br />
+    <select style="margin-left:82%"
+            asp-for="@Model.productCatagoryId"
+            asp-items="@(new SelectList(Model.productCatagory,"CatagoryId","CatagoryName"))">
+        <option>الرجاء اختيار صنف المنتج</option>
+    </select>
+    <br />
+    <br />
+    <select class="selectpicker" style="margin-left:90%" asp-for="@Model.supplyerId" asp-items="@(new SelectList(Model.supplyer,"SupplierId","SupplierName"))">
+        <option>اسم المجهز</option>
+    </select>
+    <br />
+    <br />
+
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupFileAddon01">تحميل</span>
+        </div>
+        <div class="custom-file">
+            <input asp-for="Photo" type="file" class="custom-file-input" id="inputGroupFile01"
+                   aria-describedby="inputGroupFileAddon01">
+            <label style="margin-left:70%" class="custom-file-label" for="inputGroupFile01">صورة المنتج</label>
+        </div>
+    </div>
+    
+    
+
+    <br />
+    <br />
+    <div class="form-group col-xs-4 col-md-8">
+        <label style="margin-left:90%" for="exampleFormControlTextarea1">عن المنتج</label>
+        <textarea asp-for="@Model.Description" placeholder="شرح مختصر عن المنتج" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+
+    <button style="margin-left:85%" dir="rtl" type="submit" class="btn btn-primary">حفظ المعلومات</button>
+</form>

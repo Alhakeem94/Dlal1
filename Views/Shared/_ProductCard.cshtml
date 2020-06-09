@@ -1,0 +1,15 @@
+﻿<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <img src="@Model.ProductPhotoPath" alt="Candy image" />
+        <div class="caption">
+            <h3 class="pull-right">@Model.ProductPrice.ToString("c")</h3>
+            <h2><a asp-controller="Products" asp-action="Details" asp-route-id="@Model.ProductId">@Model.ProductName</a></h2>
+            <p>@Model.Description</p>
+        </div>
+        <div class="addToCart">
+            <p class="button">
+                <a class="btn btn-primary" asp-controller="Products" asp-action="Details" asp-route-ProductId="@Model.ProductsId">Add To Cart</a>
+            </p>
+        </div>
+    </div>
+</div>
