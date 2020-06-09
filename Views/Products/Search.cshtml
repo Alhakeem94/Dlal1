@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Dalal.Models.Products>
+
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Search</h1>
+
+<div class="card-deck">
+    @foreach (var item in Model)
+    {
+        var photoPath = "~/images/" + (item.ProductPhotoPath);
+        <div class="card m-3" style="min-width: 18rem; max-width:30.5%;">
+            <div class="card-header" style="background-color:darkblue">
+                <h4 style="color:white" class="text-center">@item.ProductName</h4>
+            </div>
+
+            <img style="height:200px;width:auto" class="card-img-top imageThumbnail" src="@photoPath"
+                 asp-append-version="true" />
+            <br />
+            <h4 class="text-center">@item.ProductPrice.ToString()</h4>
+            <br />
+            <h4 class="text-center">@item.supplyer.SupplierName.ToString()</h4>
+            <br />
+            <div class="card-footer text-center" style="background-color:lightblue">
+                <a asp-controller="Products" asp-action="Details" asp-route-ProductId="@item.ProductId"
+                   class="btn btn-primary m-1">التفاصيل</a>
+                <a asp-controller="Products" asp-action="Edit" asp-route-ProductId="@item.ProductId" class="btn btn-secondary m-1">تعديل</a>
+                <a asp-controller="Products" asp-action="DeleteProduct" asp-route-ProductId="@item.ProductId" class="btn btn-danger m-1">حذف</a>
+            </div>
+        </div>
+    }
+</div>
+

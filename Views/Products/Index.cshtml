@@ -30,7 +30,7 @@
         <div class="card-footer text-center" style="background-color:lightblue">
             <a asp-controller="Products" asp-action="Details" asp-route-ProductId="@item.ProductId"
                class="btn btn-primary m-1">التفاصيل</a>
-            <a href="#" class="btn btn-secondary m-1">تعديل</a>
+            <a asp-controller="Products" asp-action="Edit" asp-route-ProductId="@item.ProductId" class="btn btn-secondary m-1">تعديل</a>
             <a asp-controller="Products" asp-action="DeleteProduct" asp-route-ProductId="@item.ProductId" class="btn btn-danger m-1">حذف</a>
         </div>
     </div>

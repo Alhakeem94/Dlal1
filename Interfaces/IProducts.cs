@@ -15,7 +15,8 @@ namespace Dalal.Interfaces
         Products GetProductById(int ProductId);
         Products CreateProduct(CreateProductViewModel newproduct);
         void DeleteProduct(int ProductId);
-        Products EditProduct(CreateProductViewModel EditedProduct);
+        Products EditProduct(EditProductViewModel EditedProduct);
+       List <Products> SearchProduct(string name);
         
     }
 }

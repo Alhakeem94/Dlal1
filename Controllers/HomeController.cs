@@ -6,21 +6,34 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Dalal.Models;
+using Dalal.Repositories;
+using Dalal.Data;
+using Microsoft.EntityFrameworkCore;
+using Dalal.ViewModels;
 
 namespace Dalal.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,
+                              ApplicationDbContext db)
         {
+            _db = db;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var productsondiscount = _db.Products.Include(c => c.productCatagory).Include(c => c.supplyer).Where(a => a.IsOnSale).ToList();
+            var viewmodel = new HomePageViewModel
+            {
+                 products = productsondiscount,
+                  SearchedProduct =null
+            };
+            return View(viewmodel);
         }
 
         public IActionResult Privacy()

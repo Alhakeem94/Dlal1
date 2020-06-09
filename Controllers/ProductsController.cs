@@ -61,5 +61,46 @@ namespace Dalal.Controllers
         }
 
 
+        [HttpGet]
+        public IActionResult Edit(int ProductId)
+        {
+            var editeditem = _db.Products.SingleOrDefault(c => c.ProductId == ProductId);
+            var viewmodel = new EditProductViewModel
+            {
+
+                ProductName = editeditem.ProductName,
+                ProductPrice = editeditem.ProductPrice,
+                Description = editeditem.Description,
+                productCatagory = _db.ProductCatagories.ToList(),
+                productCatagoryId = editeditem.productCatagoryId,
+                supplyerId = editeditem.supplyerId,
+                supplyer = _db.Suppliers.ToList(),
+                ExistingPhotoPath = editeditem.ProductPhotoPath
+
+
+            };
+            return View(viewmodel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EditProductViewModel EditedProduct)
+        {
+            _Iproducts.EditProduct(EditedProduct);
+            return RedirectToAction(nameof(Index));
+
+        }
+
+
+        public IActionResult Search(HomePageViewModel ProductName)
+        {
+            if (ProductName !=null)
+            {
+                string name = ProductName.SearchedProduct;
+                var searchedproducts =  _Iproducts.SearchProduct(name);
+                return View(searchedproducts);
+            }
+            return RedirectToAction("Index","Home");
+
+        }
     }
 }
